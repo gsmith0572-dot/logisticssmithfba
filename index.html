@@ -427,6 +427,156 @@
     .tl-node { width: 56px; }
     .tl-dot { width: 18px; height: 18px; }
   }
+
+  /* ===================== PRICING SECTION ===================== */
+  .pricing-section { background: var(--surface); }
+
+  .scarcity-bar {
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px; background: rgba(0,33,71,0.05);
+    border: 1px solid rgba(0,33,71,0.1); border-radius: 999px;
+    padding: 10px 24px; margin: 0 auto 40px; max-width: 480px;
+    font-size: 13px; font-weight: 600; color: var(--navy); text-align: center;
+  }
+  .scarcity-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #e53e3e; flex-shrink: 0;
+    animation: pulse 1.5s infinite;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 1100px; margin: 0 auto;
+  }
+
+  .pricing-card {
+    background: white;
+    border-radius: 20px;
+    padding: 28px 24px;
+    border: 2px solid var(--border);
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex; flex-direction: column; gap: 0;
+  }
+  .pricing-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,33,71,0.12); }
+
+  .pricing-card-featured {
+    background: var(--navy);
+    border-color: var(--orange);
+    box-shadow: 0 8px 40px rgba(0,33,71,0.25);
+    transform: scale(1.01);
+  }
+  .pricing-card-featured:hover { transform: scale(1.01) translateY(-4px); }
+
+  .pricing-card-elite {
+    border-color: #c9a84c;
+    background: linear-gradient(135deg, #fff 0%, #fffbf0 100%);
+  }
+
+  .pricing-badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--orange); color: white;
+    font-size: 11px; font-weight: 800; letter-spacing: 0.05em;
+    padding: 4px 16px; border-radius: 999px; white-space: nowrap;
+  }
+  .pricing-badge-gold {
+    background: linear-gradient(90deg, #c9a84c, #f0c75e);
+    color: #5a3e00;
+  }
+
+  .pricing-tier-label {
+    font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--orange);
+    margin-bottom: 8px; margin-top: 8px;
+  }
+  .pricing-card-featured .pricing-tier-label { color: rgba(255,140,0,0.9); }
+
+  .pricing-persons {
+    font-size: 14px; font-weight: 600; color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .pricing-card-featured .pricing-persons { color: rgba(255,255,255,0.6); }
+
+  .pricing-price {
+    font-size: 48px; font-weight: 900; color: var(--navy);
+    letter-spacing: -0.04em; line-height: 1;
+    margin-bottom: 4px;
+  }
+  .pricing-card-featured .pricing-price { color: white; }
+  .pricing-card-elite .pricing-price { color: var(--navy); }
+
+  .pricing-per {
+    font-size: 12px; color: var(--muted); font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .pricing-card-featured .pricing-per { color: rgba(255,255,255,0.5); }
+
+  .pricing-savings {
+    display: inline-block;
+    background: rgba(255,140,0,0.12); color: var(--orange);
+    font-size: 12px; font-weight: 800;
+    padding: 4px 12px; border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  .pricing-savings-none {
+    background: rgba(0,33,71,0.06); color: var(--muted);
+  }
+  .pricing-card-featured .pricing-savings {
+    background: rgba(255,140,0,0.2); color: #FFB347;
+  }
+
+  .pricing-features {
+    list-style: none; display: flex; flex-direction: column;
+    gap: 10px; margin-bottom: 24px; flex: 1;
+  }
+  .pricing-features li {
+    font-size: 13px; color: var(--muted); font-weight: 500;
+    display: flex; align-items: flex-start; gap: 8px; line-height: 1.4;
+  }
+  .pricing-card-featured .pricing-features li { color: rgba(255,255,255,0.75); }
+  .pricing-bonus { color: var(--orange) !important; font-weight: 700 !important; }
+  .pricing-card-featured .pricing-bonus { color: #FFB347 !important; }
+
+  .pricing-btn {
+    width: 100%; padding: 14px; border-radius: 12px;
+    font-family: 'Manrope', sans-serif; font-weight: 700;
+    font-size: 14px; cursor: pointer; transition: all 0.2s;
+    border: 2px solid transparent; text-align: center;
+  }
+  .pricing-btn-primary {
+    background: var(--orange); color: white;
+    box-shadow: 0 6px 24px rgba(255,140,0,0.4);
+  }
+  .pricing-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(255,140,0,0.5); }
+  .pricing-btn-outline {
+    background: transparent; color: var(--navy);
+    border-color: var(--border);
+  }
+  .pricing-btn-outline:hover { border-color: var(--navy); background: rgba(0,33,71,0.04); }
+  .pricing-card-featured .pricing-btn-outline {
+    border-color: rgba(255,255,255,0.3); color: white;
+  }
+  .pricing-card-featured .pricing-btn-outline:hover {
+    background: rgba(255,255,255,0.1); border-color: white;
+  }
+
+  .pricing-note {
+    text-align: center; font-size: 13px; color: var(--muted);
+    max-width: 580px; margin: 32px auto 0; line-height: 1.7;
+  }
+  .pricing-note strong { color: var(--navy); }
+
+  @media (min-width: 640px) {
+    .pricing-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 1024px) {
+    .pricing-grid { grid-template-columns: repeat(4, 1fr); }
+    .pricing-card-featured { transform: scale(1.04); }
+    .pricing-card-featured:hover { transform: scale(1.04) translateY(-4px); }
+  }
+
 </style>
 </head>
 <body>
@@ -441,6 +591,7 @@
     <ul class="nav-links">
       <li><a href="#services" data-i18n="nav.services">Services</a></li>
       <li><a href="#itinerary" data-i18n="nav.itinerary">Canton Fair</a></li>
+      <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
       <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
 
@@ -461,6 +612,7 @@
 <div class="mobile-menu" id="mobile-menu">
   <a href="#services" onclick="closeMobile()" data-i18n="nav.services">Services</a>
   <a href="#itinerary" onclick="closeMobile()" data-i18n="nav.itinerary">Canton Fair</a>
+  <a href="#pricing" onclick="closeMobile()" data-i18n="nav.pricing">Pricing</a>
   <a href="#contact" onclick="closeMobile()" data-i18n="nav.contact">Contact</a>
   <div class="mobile-menu-lang">
     <button class="lang-btn active" onclick="setLang('en');closeMobile()" id="m-btn-en">EN</button>
@@ -557,6 +709,107 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+
+<!-- ===== PRICING ===== -->
+<section class="section pricing-section" id="pricing" aria-labelledby="pricing-heading">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow" data-i18n="pricing.eyebrow">Group Rates</span>
+      <h2 class="section-title" id="pricing-heading" data-i18n="pricing.title">Bring Your Circle. Save More.</h2>
+      <p class="section-subtitle" data-i18n="pricing.subtitle">The more FBA entrepreneurs you bring, the less each person pays — and the more powerful your sourcing network becomes.</p>
+    </div>
+
+    <!-- Scarcity bar -->
+    <div class="scarcity-bar fade-up">
+      <span class="scarcity-dot"></span>
+      <span data-i18n="pricing.scarcity">⚡ Only 8 seats per phase — Next departure: <strong>October 2026</strong></span>
+    </div>
+
+    <!-- Pricing cards grid -->
+    <div class="pricing-grid fade-up">
+
+      <!-- Tier 1: Solo -->
+      <div class="pricing-card">
+        <div class="pricing-tier-label" data-i18n="pt.1.label">Solo Experience</div>
+        <div class="pricing-persons">👤 <span data-i18n="pt.1.persons">1 Traveler</span></div>
+        <div class="pricing-price">$4,250</div>
+        <div class="pricing-per" data-i18n="pt.per">per person</div>
+        <div class="pricing-savings pricing-savings-none" data-i18n="pt.1.savings">Standard Rate</div>
+        <ul class="pricing-features">
+          <li>✓ <span data-i18n="pf.1">Round trip airfare Dallas–Guangzhou</span></li>
+          <li>✓ <span data-i18n="pf.2">5-Star hotel & ground transport</span></li>
+          <li>✓ <span data-i18n="pf.3">3 days Canton Fair guidance</span></li>
+          <li>✓ <span data-i18n="pf.4">2 days factory deep-dives</span></li>
+          <li>✓ <span data-i18n="pf.5">FBA strategy sessions</span></li>
+          <li>✓ <span data-i18n="pf.6">10% off future DDP shipping</span></li>
+        </ul>
+        <button class="pricing-btn pricing-btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-i18n="pt.cta">Reserve My Seat</button>
+      </div>
+
+      <!-- Tier 2: Duo — MOST POPULAR -->
+      <div class="pricing-card pricing-card-featured">
+        <div class="pricing-badge" data-i18n="pt.popular">⭐ Most Popular</div>
+        <div class="pricing-tier-label" data-i18n="pt.2.label">Partner Rate</div>
+        <div class="pricing-persons">👥 <span data-i18n="pt.2.persons">2 Travelers</span></div>
+        <div class="pricing-price">$3,750</div>
+        <div class="pricing-per" data-i18n="pt.per">per person</div>
+        <div class="pricing-savings" data-i18n="pt.2.savings">Save $500 per person</div>
+        <ul class="pricing-features">
+          <li>✓ <span data-i18n="pf.1">Round trip airfare Dallas–Guangzhou</span></li>
+          <li>✓ <span data-i18n="pf.2">5-Star hotel & ground transport</span></li>
+          <li>✓ <span data-i18n="pf.3">3 days Canton Fair guidance</span></li>
+          <li>✓ <span data-i18n="pf.4">2 days factory deep-dives</span></li>
+          <li>✓ <span data-i18n="pf.5">FBA strategy sessions</span></li>
+          <li>✓ <span data-i18n="pf.6">10% off future DDP shipping</span></li>
+        </ul>
+        <button class="pricing-btn pricing-btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-i18n="pt.cta">Reserve My Seat</button>
+      </div>
+
+      <!-- Tier 3: Team -->
+      <div class="pricing-card">
+        <div class="pricing-tier-label" data-i18n="pt.3.label">Team Rate</div>
+        <div class="pricing-persons">👥👤 <span data-i18n="pt.3.persons">3 Travelers</span></div>
+        <div class="pricing-price">$3,500</div>
+        <div class="pricing-per" data-i18n="pt.per">per person</div>
+        <div class="pricing-savings" data-i18n="pt.3.savings">Save $750 per person</div>
+        <ul class="pricing-features">
+          <li>✓ <span data-i18n="pf.1">Round trip airfare Dallas–Guangzhou</span></li>
+          <li>✓ <span data-i18n="pf.2">5-Star hotel & ground transport</span></li>
+          <li>✓ <span data-i18n="pf.3">3 days Canton Fair guidance</span></li>
+          <li>✓ <span data-i18n="pf.4">2 days factory deep-dives</span></li>
+          <li>✓ <span data-i18n="pf.5">FBA strategy sessions</span></li>
+          <li>✓ <span data-i18n="pf.6">10% off future DDP shipping</span></li>
+        </ul>
+        <button class="pricing-btn pricing-btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-i18n="pt.cta">Reserve My Seat</button>
+      </div>
+
+      <!-- Tier 4: Elite -->
+      <div class="pricing-card pricing-card-elite">
+        <div class="pricing-badge pricing-badge-gold" data-i18n="pt.elite">🏆 Best Value</div>
+        <div class="pricing-tier-label" data-i18n="pt.4.label">Elite Group Rate</div>
+        <div class="pricing-persons">👥👥 <span data-i18n="pt.4.persons">4 Travelers</span></div>
+        <div class="pricing-price">$3,250</div>
+        <div class="pricing-per" data-i18n="pt.per">per person</div>
+        <div class="pricing-savings" data-i18n="pt.4.savings">Save $1,000 per person</div>
+        <ul class="pricing-features">
+          <li>✓ <span data-i18n="pf.1">Round trip airfare Dallas–Guangzhou</span></li>
+          <li>✓ <span data-i18n="pf.2">5-Star hotel & ground transport</span></li>
+          <li>✓ <span data-i18n="pf.3">3 days Canton Fair guidance</span></li>
+          <li>✓ <span data-i18n="pf.4">2 days factory deep-dives</span></li>
+          <li>✓ <span data-i18n="pf.5">FBA strategy sessions</span></li>
+          <li>✓ <span data-i18n="pf.6">10% off future DDP shipping</span></li>
+          <li class="pricing-bonus">⭐ <span data-i18n="pf.7">Priority seat selection</span></li>
+        </ul>
+        <button class="pricing-btn pricing-btn-outline" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-i18n="pt.cta">Reserve My Seat</button>
+      </div>
+
+    </div>
+
+    <!-- Max seats note -->
+    <p class="pricing-note fade-up" data-i18n="pricing.note">Maximum 8 seats per trip (2 groups of 4). All packages include the <strong>10% DDP shipping discount</strong> applied to every future order after the trip.</p>
   </div>
 </section>
 
@@ -710,6 +963,35 @@ const i18n = {
     "nav.services": "Services",
     "nav.itinerary": "Canton Fair",
     "nav.contact": "Contact",
+    "nav.pricing": "Pricing",
+    "pricing.eyebrow": "Group Rates",
+    "pricing.title": "Bring Your Circle. Save More.",
+    "pricing.subtitle": "The more FBA entrepreneurs you bring, the less each person pays — and the more powerful your sourcing network becomes.",
+    "pricing.scarcity": "⚡ Only 8 seats per phase — Next departure: <strong>October 2026</strong>",
+    "pricing.note": "Maximum 8 seats per trip (2 groups of 4). All packages include the <strong>10% DDP shipping discount</strong> applied to every future order after the trip.",
+    "pt.per": "per person",
+    "pt.popular": "⭐ Most Popular",
+    "pt.elite": "🏆 Best Value",
+    "pt.cta": "Reserve My Seat",
+    "pt.1.label": "Solo Experience",
+    "pt.1.persons": "1 Traveler",
+    "pt.1.savings": "Standard Rate",
+    "pt.2.label": "Partner Rate",
+    "pt.2.persons": "2 Travelers",
+    "pt.2.savings": "Save $500 per person",
+    "pt.3.label": "Team Rate",
+    "pt.3.persons": "3 Travelers",
+    "pt.3.savings": "Save $750 per person",
+    "pt.4.label": "Elite Group Rate",
+    "pt.4.persons": "4 Travelers",
+    "pt.4.savings": "Save $1,000 per person",
+    "pf.1": "Round trip airfare Dallas–Guangzhou",
+    "pf.2": "5-Star hotel & ground transport",
+    "pf.3": "3 days Canton Fair guidance",
+    "pf.4": "2 days factory deep-dives",
+    "pf.5": "FBA strategy sessions",
+    "pf.6": "10% off future DDP shipping",
+    "pf.7": "Priority seat selection",
     "nav.cta": "Get a Quote",
     "hero.badge": "FBA Excellence Since 2012",
     "hero.h1": 'Your Direct <em>Bridge</em><br/>from China to Amazon FBA',
@@ -783,6 +1065,35 @@ const i18n = {
     "nav.services": "Servicios",
     "nav.itinerary": "Feria Cantón",
     "nav.contact": "Contacto",
+    "nav.pricing": "Precios",
+    "pricing.eyebrow": "Tarifas de Grupo",
+    "pricing.title": "Trae Tu Círculo. Ahorra Más.",
+    "pricing.subtitle": "Entre más emprendedores FBA traigas, menos paga cada uno — y más poderosa se vuelve tu red de abastecimiento.",
+    "pricing.scarcity": "⚡ Solo 8 cupos por fase — Próxima salida: <strong>Octubre 2026</strong>",
+    "pricing.note": "Máximo 8 cupos por viaje (2 grupos de 4). Todos los paquetes incluyen el <strong>10% de descuento en envíos DDP</strong> aplicado a cada pedido futuro después del viaje.",
+    "pt.per": "por persona",
+    "pt.popular": "⭐ Más Popular",
+    "pt.elite": "🏆 Mejor Valor",
+    "pt.cta": "Reservar Mi Cupo",
+    "pt.1.label": "Experiencia Solo",
+    "pt.1.persons": "1 Viajero",
+    "pt.1.savings": "Tarifa Estándar",
+    "pt.2.label": "Tarifa en Pareja",
+    "pt.2.persons": "2 Viajeros",
+    "pt.2.savings": "Ahorra $500 por persona",
+    "pt.3.label": "Tarifa de Equipo",
+    "pt.3.persons": "3 Viajeros",
+    "pt.3.savings": "Ahorra $750 por persona",
+    "pt.4.label": "Tarifa Grupo Elite",
+    "pt.4.persons": "4 Viajeros",
+    "pt.4.savings": "Ahorra $1,000 por persona",
+    "pf.1": "Vuelo redondo Dallas–Guangzhou",
+    "pf.2": "Hotel 5 estrellas y transporte",
+    "pf.3": "3 días de orientación en la Feria",
+    "pf.4": "2 días de visitas a fábricas",
+    "pf.5": "Sesiones de estrategia FBA",
+    "pf.6": "10% de descuento en envíos DDP",
+    "pf.7": "Selección prioritaria de asiento",
     "nav.cta": "Cotización",
     "hero.badge": "Excelencia FBA Desde 2012",
     "hero.h1": 'Tu Puente Directo<br/>de China a <em>Amazon FBA</em>',
