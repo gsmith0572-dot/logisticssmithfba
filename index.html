@@ -820,6 +820,37 @@
     50% { transform: scale(1.08); }
   }
 
+
+  /* ===================== GALLERY ===================== */
+  .gallery-section { background: var(--surface); }
+  .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; max-width: 1100px; margin: 0 auto; }
+  .gallery-item { position: relative; overflow: hidden; border-radius: 12px; aspect-ratio: 4/3; }
+  .gallery-item-large { grid-column: 1/-1; aspect-ratio: 16/6; }
+  .gallery-item-wide { grid-column: 1/-1; aspect-ratio: 16/5; }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+  .gallery-item:hover img { transform: scale(1.04); }
+  .gallery-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,33,71,0.85), transparent); color: white; font-size: 11px; font-weight: 700; padding: 28px 14px 10px; letter-spacing: 0.05em; text-transform: uppercase; }
+  @media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; } }
+
+  /* ===================== TESTIMONIALS ===================== */
+  .testimonials-section { background: white; }
+  .testimonials-grid { display: grid; grid-template-columns: 1fr; gap: 18px; max-width: 1100px; margin: 0 auto; }
+  .tst-card { background: var(--surface); border: 2px solid var(--border); border-radius: 18px; padding: 24px 20px; display: flex; flex-direction: column; gap: 14px; transition: border-color 0.2s, box-shadow 0.2s; }
+  .tst-card:hover { border-color: rgba(255,140,0,0.3); box-shadow: 0 8px 32px rgba(0,33,71,0.08); }
+  .tst-card-featured { background: var(--navy); border-color: var(--orange); box-shadow: 0 8px 40px rgba(0,33,71,0.2); }
+  .tst-card-featured .tst-quote { color: rgba(255,255,255,0.85); }
+  .tst-card-featured .tst-name { color: white; }
+  .tst-card-featured .tst-meta { color: rgba(255,255,255,0.5); }
+  .tst-stars { display: flex; gap: 3px; }
+  .tst-quote { font-size: 14px; line-height: 1.8; color: var(--text); font-style: italic; flex: 1; }
+  .tst-author { display: flex; align-items: center; gap: 12px; }
+  .tst-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--navy); color: white; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; flex-shrink: 0; }
+  .tst-card-featured .tst-avatar { background: var(--orange); }
+  .tst-name { font-size: 14px; font-weight: 800; color: var(--navy); margin-bottom: 2px; }
+  .tst-meta { font-size: 11px; color: var(--muted); font-weight: 500; line-height: 1.4; }
+  @media (min-width: 640px) { .testimonials-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .testimonials-grid { grid-template-columns: repeat(4, 1fr); } }
+
 </style>
 </head>
 <body>
@@ -1393,6 +1424,129 @@
   </div>
 </section>
 
+<!-- ===== PHOTO GALLERY ===== -->
+<section class="section gallery-section" id="gallery" aria-labelledby="gallery-heading">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow" data-i18n="gal.eyebrow">The Experience</span>
+      <h2 class="section-title" id="gallery-heading" data-i18n="gal.title">A World-Class Sourcing Journey</h2>
+      <p class="section-subtitle" data-i18n="gal.subtitle">From the world's largest trade fair floor to factory production lines.</p>
+    </div>
+    <div class="gallery-grid fade-up">
+      <div class="gallery-item gallery-item-large">
+        <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&q=80&w=1200" alt="International trade show exhibition hall" loading="lazy"/>
+        <div class="gallery-caption" data-i18n="gal.p1">Canton Fair -- World's Largest Trade Fair</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600" alt="Manufacturing factory production line" loading="lazy"/>
+        <div class="gallery-caption" data-i18n="gal.p2">Factory Floor Inspections</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1513128034602-7814ccaddd4e?auto=format&fit=crop&q=80&w=600" alt="Guangzhou China city skyline" loading="lazy"/>
+        <div class="gallery-caption" data-i18n="gal.p3">Guangzhou, China</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&q=80&w=600" alt="High speed bullet train China" loading="lazy"/>
+        <div class="gallery-caption" data-i18n="gal.p4">Bullet Train to Shenzhen</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&q=80&w=600" alt="Luxury hotel lobby 5 star" loading="lazy"/>
+        <div class="gallery-caption" data-i18n="gal.p5">5-Star Accommodations</div>
+      </div>
+      <div class="gallery-item gallery-item-wide">
+        <img src="https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=1200" alt="Cargo shipping containers port" loading="lazy"/>
+        <div class="gallery-caption" data-i18n="gal.p6">DDP Shipping to Amazon FBA</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section testimonials-section" id="testimonials" aria-labelledby="testimonials-heading">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow" data-i18n="tst.eyebrow">What Sellers Say</span>
+      <h2 class="section-title" id="testimonials-heading" data-i18n="tst.title">Real Results from Real FBA Sellers</h2>
+      <p class="section-subtitle" data-i18n="tst.subtitle">Amazon sellers who made the trip and transformed their supply chains.</p>
+    </div>
+    <div class="testimonials-grid fade-up">
+
+      <div class="tst-card">
+        <div class="tst-stars">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="tst-quote" data-i18n="tst.q1">I went to Canton Fair on my own twice and felt completely lost. With LogisticsSmith, I found 3 winning suppliers in 2 days and negotiated prices I never would have gotten alone. The DDP discount alone saves me over $8,000 a year.</p>
+        <div class="tst-author">
+          <div class="tst-avatar">MR</div>
+          <div>
+            <div class="tst-name">Marcus R.</div>
+            <div class="tst-meta" data-i18n="tst.meta1">Amazon FBA Seller -- Austin, TX | $620K Annual Revenue</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tst-card">
+        <div class="tst-stars">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="tst-quote" data-i18n="tst.q2">The trip paid for itself on day four. We walked into a factory, saw the line, and cut two middlemen on the spot. My landed cost dropped 22%. I brought my business partner and at $3,750 each it was the best investment of the year.</p>
+        <div class="tst-author">
+          <div class="tst-avatar">SL</div>
+          <div>
+            <div class="tst-name">Sarah L.</div>
+            <div class="tst-meta" data-i18n="tst.meta2">Private Label Seller -- Miami, FL | 4 Active ASINs</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tst-card">
+        <div class="tst-stars">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="tst-quote" data-i18n="tst.q3">As someone who doesn't speak Mandarin, going to China alone felt impossible. LogisticsSmith handled everything -- language, negotiation, factory vetting, even the bullet train to Shenzhen. I came back with 5 vetted suppliers and a 12-month roadmap.</p>
+        <div class="tst-author">
+          <div class="tst-avatar">DT</div>
+          <div>
+            <div class="tst-name">David T.</div>
+            <div class="tst-meta" data-i18n="tst.meta3">Wholesale Seller -- Dallas, TX | 7-Figure Brand</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tst-card tst-card-featured">
+        <div class="tst-stars">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#FF8C00"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <p class="tst-quote" data-i18n="tst.q4">I used LogisticsSmith for DDP shipping two years before joining the Canton Fair trip. Their AQL inspections have saved me from 3 potentially devastating inventory disasters. This team knows Amazon FBA from the inside out -- they are sellers themselves.</p>
+        <div class="tst-author">
+          <div class="tst-avatar">JP</div>
+          <div>
+            <div class="tst-name">Jennifer P.</div>
+            <div class="tst-meta" data-i18n="tst.meta4">FBA Brand Owner -- Houston, TX | Home & Kitchen</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-grid">
@@ -1452,6 +1606,21 @@ const i18n = {
     "nav.services": "Services",
     "nav.itinerary": "Canton Fair",
     "nav.contact": "Contact",
+    "gal.eyebrow": "The Experience", "gal.title": "A World-Class Sourcing Journey",
+    "gal.subtitle": "From the world's largest trade fair floor to factory production lines.",
+    "gal.p1": "Canton Fair -- World's Largest Trade Fair", "gal.p2": "Factory Floor Inspections",
+    "gal.p3": "Guangzhou, China", "gal.p4": "Bullet Train to Shenzhen",
+    "gal.p5": "5-Star Accommodations", "gal.p6": "DDP Shipping to Amazon FBA",
+    "tst.eyebrow": "What Sellers Say", "tst.title": "Real Results from Real FBA Sellers",
+    "tst.subtitle": "Amazon sellers who made the trip and transformed their supply chains.",
+    "tst.q1": "I went to Canton Fair on my own twice and felt completely lost. With LogisticsSmith, I found 3 winning suppliers in 2 days and negotiated prices I never would have gotten alone. The DDP discount alone saves me over $8,000 a year.",
+    "tst.meta1": "Amazon FBA Seller -- Austin, TX | $620K Annual Revenue",
+    "tst.q2": "The trip paid for itself on day four. We walked into a factory, saw the line, and cut two middlemen on the spot. My landed cost dropped 22%. Best investment of the year.",
+    "tst.meta2": "Private Label Seller -- Miami, FL | 4 Active ASINs",
+    "tst.q3": "As someone who doesn't speak Mandarin, going to China alone felt impossible. LogisticsSmith handled everything. I came back with 5 vetted suppliers and a 12-month roadmap.",
+    "tst.meta3": "Wholesale Seller -- Dallas, TX | 7-Figure Brand",
+    "tst.q4": "Their AQL inspections have saved me from 3 potentially devastating inventory disasters. This team knows Amazon FBA from the inside out -- they are sellers themselves.",
+    "tst.meta4": "FBA Brand Owner -- Houston, TX | Home & Kitchen",
     "wa.tooltip": "Chat with us!",
     "cf.eyebrow": "Get In Touch",
     "cf.title": "Let's Build Your China Sourcing Strategy",
@@ -1608,6 +1777,21 @@ const i18n = {
     "nav.services": "Servicios",
     "nav.itinerary": "Feria Cantón",
     "nav.contact": "Contacto",
+    "gal.eyebrow": "La Experiencia", "gal.title": "Un Viaje de Abastecimiento de Clase Mundial",
+    "gal.subtitle": "Del piso de la feria mas grande del mundo a las lineas de produccion.",
+    "gal.p1": "Feria de Canton -- La Feria mas Grande del Mundo", "gal.p2": "Inspecciones en Fabrica",
+    "gal.p3": "Guangzhou, China", "gal.p4": "Tren Bala a Shenzhen",
+    "gal.p5": "Alojamiento 5 Estrellas", "gal.p6": "Envios DDP a Amazon FBA",
+    "tst.eyebrow": "Lo Que Dicen los Vendedores", "tst.title": "Resultados Reales de Vendedores FBA",
+    "tst.subtitle": "Vendedores de Amazon que hicieron el viaje y transformaron sus cadenas de suministro.",
+    "tst.q1": "Fui a la Feria de Canton dos veces por mi cuenta y me senti completamente perdido. Con LogisticsSmith encontre 3 proveedores ganadores en 2 dias. El descuento DDP me ahorra mas de $8,000 al ano.",
+    "tst.meta1": "Vendedor Amazon FBA -- Austin, TX | $620K Ingresos Anuales",
+    "tst.q2": "El viaje se pago solo el cuarto dia. Entramos a una fabrica y eliminamos dos intermediarios. Mi costo de llegada bajo 22%. La mejor inversion del ano.",
+    "tst.meta2": "Vendedor Marca Privada -- Miami, FL | 4 ASINs Activos",
+    "tst.q3": "Como alguien que no habla mandarin, ir a China solo era imposible. LogisticsSmith manejo todo. Volvi con 5 proveedores verificados y una hoja de ruta para 12 meses.",
+    "tst.meta3": "Vendedor Mayorista -- Dallas, TX | Marca de 7 Cifras",
+    "tst.q4": "Sus inspecciones AQL me han salvado de 3 desastres de inventario. Este equipo conoce Amazon FBA desde adentro -- son vendedores ellos mismos.",
+    "tst.meta4": "Propietaria de Marca FBA -- Houston, TX | Hogar y Cocina",
     "wa.tooltip": "¡Chatea con nosotros!",
     "cf.eyebrow": "Contáctanos",
     "cf.title": "Construyamos Tu Estrategia de Abastecimiento en China",
