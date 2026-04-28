@@ -873,6 +873,85 @@
     .hamburger { display: none !important; }
     .nav-links { display: flex !important; }
   }
+
+  /* ===================== BLOG SECTION ===================== */
+  .blog-section { background: var(--surface); }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 1000px; margin: 0 auto;
+  }
+
+  .blog-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 2px solid var(--border);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    display: flex; flex-direction: column;
+  }
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0,33,71,0.12);
+    border-color: rgba(255,140,0,0.3);
+  }
+
+  .blog-card-img {
+    position: relative; overflow: hidden;
+    height: 220px; flex-shrink: 0;
+  }
+  .blog-card-img img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    transition: transform 0.6s ease;
+  }
+  .blog-card:hover .blog-card-img img { transform: scale(1.04); }
+
+  .blog-card-tag {
+    position: absolute; top: 16px; left: 16px;
+    background: var(--orange); color: white;
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 999px;
+  }
+  .blog-card-tag-es { background: var(--navy); }
+
+  .blog-card-body {
+    padding: 24px; display: flex;
+    flex-direction: column; gap: 12px; flex: 1;
+  }
+
+  .blog-card-meta {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; color: var(--muted); font-weight: 600;
+  }
+
+  .blog-card-title {
+    font-size: 18px; font-weight: 800;
+    color: var(--navy); line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  .blog-card-excerpt {
+    font-size: 14px; color: var(--muted);
+    line-height: 1.7; flex: 1;
+  }
+
+  .blog-card-link {
+    display: inline-flex; align-items: center;
+    color: var(--orange); font-weight: 700; font-size: 14px;
+    text-decoration: none; margin-top: 8px;
+    transition: gap 0.2s;
+  }
+  .blog-card-link:hover { text-decoration: underline; }
+
+  @media (min-width: 700px) {
+    .blog-grid { grid-template-columns: 1fr 1fr; }
+    .blog-card { flex-direction: column; }
+  }
+
 </style>
 
 <!-- Open Graph / Social Media -->
@@ -911,6 +990,7 @@
       <li><a href="#itinerary" data-i18n="nav.itinerary">Canton Fair</a></li>
       <li><a href="#offer" data-i18n="nav.offer">The Offer</a></li>
       <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
+      <li><a href="#blog" data-i18n="nav.blog">Blog</a></li>
       <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
 
@@ -938,6 +1018,7 @@
   <a href="#itinerary" onclick="closeMobile()" data-i18n="nav.itinerary">Canton Fair</a>
   <a href="#offer" onclick="closeMobile()" data-i18n="nav.offer">The Offer</a>
   <a href="#pricing" onclick="closeMobile()" data-i18n="nav.pricing">Pricing</a>
+  <a href="#blog" onclick="closeMobile()" data-i18n="nav.blog">Blog</a>
   <a href="#contact" onclick="closeMobile()" data-i18n="nav.contact">Contact</a>
   <a href="#contact" onclick="closeMobile()" style="margin-top:16px;background:var(--orange);color:white;text-align:center;border-radius:14px;padding:14px;font-weight:700;font-size:16px;text-decoration:none;" data-i18n="nav.cta">Get a Quote</a>
 </div>
@@ -1593,6 +1674,56 @@
   </div>
 </section>
 
+<!-- ===== BLOG ===== -->
+<section class="section blog-section" id="blog" aria-labelledby="blog-heading">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow" data-i18n="blog.eyebrow">FBA Knowledge Base</span>
+      <h2 class="section-title" id="blog-heading" data-i18n="blog.title">Expert Guides for Amazon Sellers</h2>
+      <p class="section-subtitle" data-i18n="blog.subtitle">In-depth resources written by FBA veterans — covering sourcing, logistics, and scaling your Amazon business from China.</p>
+    </div>
+    <div class="blog-grid fade-up">
+
+      <!-- Post 1: EN -->
+      <article class="blog-card">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&q=80&w=800" alt="Canton Fair aerial view Guangzhou" loading="lazy"/>
+          <div class="blog-card-tag" data-i18n="blog.tag1">Sourcing Strategy</div>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span data-i18n="blog.date1">April 2026</span>
+            <span>·</span>
+            <span data-i18n="blog.read1">12 min read</span>
+          </div>
+          <h3 class="blog-card-title" data-i18n="blog.h1">The Ultimate Amazon FBA Seller's Guide to the Canton Fair 2026</h3>
+          <p class="blog-card-excerpt" data-i18n="blog.ex1">Navigate Canton Fair 2026 like a veteran FBA seller. Phases, AQL inspections, DDP vs FOB, FNSKU labeling, and the VIP Dallas-to-Guangzhou experience explained.</p>
+          <a href="/blog-canton-fair-2026-en.html" class="blog-card-link" data-i18n="blog.read-more">Read Full Guide →</a>
+        </div>
+      </article>
+
+      <!-- Post 2: ES -->
+      <article class="blog-card">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1513128034602-7814ccaddd4e?auto=format&fit=crop&q=80&w=800" alt="Guangzhou China skyline Canton Tower" loading="lazy"/>
+          <div class="blog-card-tag blog-card-tag-es" data-i18n="blog.tag2">Estrategia de Abastecimiento</div>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span data-i18n="blog.date2">Abril 2026</span>
+            <span>·</span>
+            <span data-i18n="blog.read2">12 min de lectura</span>
+          </div>
+          <h3 class="blog-card-title" data-i18n="blog.h2">La Guía Definitiva del Vendedor Amazon FBA en la Feria de Cantón 2026</h3>
+          <p class="blog-card-excerpt" data-i18n="blog.ex2">Navega la Feria de Cantón 2026 con estrategia de vendedor FBA: fases, inspecciones AQL, envío DDP, etiquetado FNSKU y la experiencia VIP de Dallas a Guangzhou.</p>
+          <a href="/blog-canton-fair-2026-es.html" class="blog-card-link" data-i18n="blog.read-more-es">Leer Guía Completa →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-grid">
@@ -1652,6 +1783,22 @@ const i18n = {
     "nav.services": "Services",
     "nav.itinerary": "Canton Fair",
     "nav.contact": "Contact",
+    "nav.blog": "Blog",
+    "blog.eyebrow": "FBA Knowledge Base",
+    "blog.title": "Expert Guides for Amazon Sellers",
+    "blog.subtitle": "In-depth resources written by FBA veterans — covering sourcing, logistics, and scaling your Amazon business from China.",
+    "blog.tag1": "Sourcing Strategy",
+    "blog.date1": "April 2026",
+    "blog.read1": "12 min read",
+    "blog.h1": "The Ultimate Amazon FBA Seller's Guide to the Canton Fair 2026",
+    "blog.ex1": "Navigate Canton Fair 2026 like a veteran FBA seller. Phases, AQL inspections, DDP vs FOB, FNSKU labeling, and the VIP Dallas-to-Guangzhou experience explained.",
+    "blog.read-more": "Read Full Guide →",
+    "blog.tag2": "Sourcing Strategy",
+    "blog.date2": "April 2026",
+    "blog.read2": "12 min read",
+    "blog.h2": "The Ultimate Amazon FBA Seller's Guide to the Canton Fair 2026 (ES)",
+    "blog.ex2": "Navigate Canton Fair 2026 with FBA seller strategy: phases, AQL inspections, DDP shipping, FNSKU labeling and the VIP Dallas to Guangzhou experience.",
+    "blog.read-more-es": "Read Full Guide →",
     "gal.eyebrow": "The Experience", "gal.title": "A World-Class Sourcing Journey",
     "gal.subtitle": "From the world's largest trade fair floor to factory production lines.",
     "gal.p1": "Canton Fair -- World's Largest Trade Fair", "gal.p2": "Factory Floor Inspections",
@@ -1823,6 +1970,22 @@ const i18n = {
     "nav.services": "Servicios",
     "nav.itinerary": "Feria Cantón",
     "nav.contact": "Contacto",
+    "nav.blog": "Blog",
+    "blog.eyebrow": "Base de Conocimiento FBA",
+    "blog.title": "Guías Expertas para Vendedores de Amazon",
+    "blog.subtitle": "Recursos detallados escritos por veteranos de FBA — sobre abastecimiento, logística y cómo escalar tu negocio de Amazon desde China.",
+    "blog.tag1": "Estrategia de Abastecimiento",
+    "blog.date1": "Abril 2026",
+    "blog.read1": "12 min de lectura",
+    "blog.h1": "La Guía Definitiva del Vendedor Amazon FBA en la Feria de Cantón 2026 (EN)",
+    "blog.ex1": "Navega la Feria de Cantón 2026 como un veterano FBA: fases, inspecciones AQL, envío DDP, etiquetado FNSKU y la experiencia VIP de Dallas a Guangzhou.",
+    "blog.read-more": "Leer Guía Completa →",
+    "blog.tag2": "Estrategia de Abastecimiento",
+    "blog.date2": "Abril 2026",
+    "blog.read2": "12 min de lectura",
+    "blog.h2": "La Guía Definitiva del Vendedor Amazon FBA en la Feria de Cantón 2026",
+    "blog.ex2": "Navega la Feria de Cantón 2026 con estrategia de vendedor FBA: fases, inspecciones AQL, envío DDP, etiquetado FNSKU y la experiencia VIP de Dallas a Guangzhou.",
+    "blog.read-more-es": "Leer Guía Completa →",
     "gal.eyebrow": "La Experiencia", "gal.title": "Un Viaje de Abastecimiento de Clase Mundial",
     "gal.subtitle": "Del piso de la feria mas grande del mundo a las lineas de produccion.",
     "gal.p1": "Feria de Canton -- La Feria mas Grande del Mundo", "gal.p2": "Inspecciones en Fabrica",
