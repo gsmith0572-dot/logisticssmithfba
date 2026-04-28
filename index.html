@@ -577,6 +577,137 @@
     .pricing-card-featured:hover { transform: scale(1.04) translateY(-4px); }
   }
 
+
+  /* ===================== VALUE STACK ===================== */
+  .value-section { background: white; }
+
+  .value-stack {
+    max-width: 900px; margin: 0 auto;
+    display: flex; flex-direction: column; gap: 0;
+    border: 2px solid var(--border); border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .vs-item {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    grid-template-rows: auto auto;
+    gap: 0 16px;
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    transition: background 0.2s;
+  }
+  .vs-item:hover { background: rgba(0,33,71,0.02); }
+  .vs-item:last-of-type { border-bottom: none; }
+
+  .vs-item-bonus { background: rgba(255,140,0,0.03); }
+  .vs-item-bonus:hover { background: rgba(255,140,0,0.06); }
+
+  .vs-bonus-tag {
+    position: absolute; top: 16px; right: 16px;
+    background: var(--orange); color: white;
+    font-size: 10px; font-weight: 800; letter-spacing: 0.08em;
+    padding: 3px 10px; border-radius: 999px;
+  }
+
+  .vs-icon {
+    font-size: 28px; line-height: 1;
+    display: flex; align-items: flex-start;
+    padding-top: 4px;
+    grid-row: 1 / 3;
+  }
+
+  .vs-content { grid-column: 2; }
+  .vs-name {
+    font-size: 15px; font-weight: 800; color: var(--navy);
+    margin-bottom: 6px; line-height: 1.35;
+    padding-right: 60px;
+  }
+  .vs-desc {
+    font-size: 13px; color: var(--muted); line-height: 1.7;
+  }
+
+  .vs-value {
+    grid-column: 1 / -1;
+    display: flex; align-items: center; gap: 12px;
+    margin-top: 14px; padding-top: 12px;
+    border-top: 1px dashed var(--border);
+  }
+  .vs-value-label {
+    font-size: 11px; font-weight: 700; color: var(--muted);
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .vs-value-price {
+    font-size: 22px; font-weight: 900; color: var(--muted);
+    text-decoration: line-through; opacity: 0.5;
+    letter-spacing: -0.02em;
+  }
+  .vs-value-plus { font-size: 14px; }
+
+  /* Total bar */
+  .vs-total {
+    background: var(--navy);
+    display: flex; flex-direction: column;
+    gap: 20px; padding: 28px 20px;
+  }
+  .vs-total-label {
+    font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5);
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px;
+  }
+  .vs-total-value {
+    font-size: 40px; font-weight: 900; color: rgba(255,255,255,0.35);
+    text-decoration: line-through; letter-spacing: -0.03em; line-height: 1;
+  }
+  .vs-total-plus { font-size: 22px; }
+  .vs-total-divider {
+    width: 100%; height: 1px;
+    background: rgba(255,255,255,0.1);
+  }
+  .vs-your-price {
+    font-size: 44px; font-weight: 900; color: var(--orange);
+    letter-spacing: -0.03em; line-height: 1; margin-bottom: 6px;
+  }
+  .vs-your-note { font-size: 16px; font-weight: 500; color: rgba(255,255,255,0.5); }
+  .vs-savings-callout {
+    display: inline-block;
+    background: rgba(255,140,0,0.15); color: #FFB347;
+    font-size: 13px; font-weight: 700;
+    padding: 6px 16px; border-radius: 999px; margin-top: 8px;
+  }
+
+  .vs-cta-area {
+    text-align: center; margin-top: 40px;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+  }
+  .vs-guarantee {
+    font-size: 13px; color: var(--muted); font-weight: 600;
+  }
+
+  @media (min-width: 700px) {
+    .vs-item {
+      grid-template-columns: 52px 1fr auto;
+      grid-template-rows: 1fr;
+      align-items: center;
+    }
+    .vs-icon { grid-row: 1; padding-top: 0; align-items: center; }
+    .vs-content { grid-column: 2; }
+    .vs-value {
+      grid-column: 3; grid-row: 1;
+      flex-direction: column; align-items: flex-end;
+      margin-top: 0; padding-top: 0; border-top: none;
+      border-left: 1px dashed var(--border);
+      padding-left: 20px; min-width: 120px; text-align: right;
+    }
+    .vs-total {
+      flex-direction: row; align-items: center;
+      gap: 0; padding: 32px 28px;
+    }
+    .vs-total-left { flex: 1; }
+    .vs-total-divider { width: 1px; height: 80px; margin: 0 32px; }
+    .vs-total-right { flex: 1; text-align: right; }
+  }
+
 </style>
 </head>
 <body>
@@ -591,6 +722,7 @@
     <ul class="nav-links">
       <li><a href="#services" data-i18n="nav.services">Services</a></li>
       <li><a href="#itinerary" data-i18n="nav.itinerary">Canton Fair</a></li>
+      <li><a href="#offer" data-i18n="nav.offer">The Offer</a></li>
       <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
       <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
@@ -612,6 +744,7 @@
 <div class="mobile-menu" id="mobile-menu">
   <a href="#services" onclick="closeMobile()" data-i18n="nav.services">Services</a>
   <a href="#itinerary" onclick="closeMobile()" data-i18n="nav.itinerary">Canton Fair</a>
+  <a href="#offer" onclick="closeMobile()" data-i18n="nav.offer">The Offer</a>
   <a href="#pricing" onclick="closeMobile()" data-i18n="nav.pricing">Pricing</a>
   <a href="#contact" onclick="closeMobile()" data-i18n="nav.contact">Contact</a>
   <div class="mobile-menu-lang">
@@ -813,6 +946,149 @@
   </div>
 </section>
 
+
+<!-- ===== VALUE STACK ===== -->
+<section class="section value-section" id="offer" aria-labelledby="offer-heading">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="section-eyebrow" data-i18n="vs.eyebrow">The Irresistible Offer</span>
+      <h2 class="section-title" id="offer-heading" data-i18n="vs.title">Everything Included. Nothing Left to Chance.</h2>
+      <p class="section-subtitle" data-i18n="vs.subtitle">We've obsessively curated every detail so you arrive in China as a buyer, not a tourist. Here's exactly what's inside your package — and what it would cost if you booked it yourself.</p>
+    </div>
+
+    <div class="value-stack fade-up">
+
+      <!-- Item 1: Flights -->
+      <div class="vs-item">
+        <div class="vs-icon">✈️</div>
+        <div class="vs-content">
+          <div class="vs-name" data-i18n="vs.i1.name">Cathay Pacific Business-Class Round Trip — Dallas to Guangzhou</div>
+          <div class="vs-desc" data-i18n="vs.i1.desc">One of the world's top-rated airlines. Lie-flat seats, premium dining, and VIP lounges — so you arrive refreshed and ready to negotiate, not exhausted from a 16-hour economy ordeal.</div>
+        </div>
+        <div class="vs-value">
+          <div class="vs-value-label" data-i18n="vs.retail">Retail Value</div>
+          <div class="vs-value-price">$3,200</div>
+        </div>
+      </div>
+
+      <!-- Item 2: Hotel -->
+      <div class="vs-item">
+        <div class="vs-icon">🏨</div>
+        <div class="vs-content">
+          <div class="vs-name" data-i18n="vs.i2.name">7 Nights — 5-Star Hotel with Full Buffet Breakfast</div>
+          <div class="vs-desc" data-i18n="vs.i2.desc">World-class accommodations steps from the Canton Fair. Your mornings start with an international buffet breakfast — fueling long days on the fair floor. Evening return to luxury, not a budget hostel.</div>
+        </div>
+        <div class="vs-value">
+          <div class="vs-value-label" data-i18n="vs.retail">Retail Value</div>
+          <div class="vs-value-price">$2,100</div>
+        </div>
+      </div>
+
+      <!-- Item 3: Canton Fair Transport -->
+      <div class="vs-item">
+        <div class="vs-icon">🚌</div>
+        <div class="vs-content">
+          <div class="vs-name" data-i18n="vs.i3.name">Daily Private Transport — Hotel to Canton Fair & Factory Visits</div>
+          <div class="vs-desc" data-i18n="vs.i3.desc">Private air-conditioned vehicle every single day. No rideshare apps, no language barriers, no wasted hours navigating an unfamiliar city. Your guide handles everything door-to-door.</div>
+        </div>
+        <div class="vs-value">
+          <div class="vs-value-label" data-i18n="vs.retail">Retail Value</div>
+          <div class="vs-value-price">$800</div>
+        </div>
+      </div>
+
+      <!-- Item 4: FBA Expert Guidance -->
+      <div class="vs-item">
+        <div class="vs-icon">🎓</div>
+        <div class="vs-content">
+          <div class="vs-name" data-i18n="vs.i4.name">3-Day VIP Canton Fair Guidance by a Veteran FBA Seller</div>
+          <div class="vs-desc" data-i18n="vs.i4.desc">Navigate 200,000+ booths with someone who's done over $3M in FBA imports. We shortcut years of trial and error — identifying winning products, vetting suppliers on the spot, and negotiating prices most buyers never see.</div>
+        </div>
+        <div class="vs-value">
+          <div class="vs-value-label" data-i18n="vs.retail">Retail Value</div>
+          <div class="vs-value-price">$2,400</div>
+        </div>
+      </div>
+
+      <!-- Item 5: Factory Visits -->
+      <div class="vs-item">
+        <div class="vs-icon">🏭</div>
+        <div class="vs-content">
+          <div class="vs-name" data-i18n="vs.i5.name">2-Day Curated Factory Deep-Dives with On-Site Quality Audit</div>
+          <div class="vs-desc" data-i18n="vs.i5.desc">Skip the middlemen. Walk the factory floor, inspect production lines, meet the actual manufacturer. Our bilingual team conducts AQL-standard quality checks in real time — so you leave with verified suppliers, not blind trust.</div>
+        </div>
+        <div class="vs-value">
+          <div class="vs-value-label" data-i18n="vs.retail">Retail Value</div>
+          <div class="vs-value-price">$1,800</div>
+        </div>
+      </div>
+
+      <!-- Item 6: Shenzhen Day -->
+      <div class="vs-item vs-item-bonus">
+        <div class="vs-bonus-tag" data-i18n="vs.bonus">🎁 BONUS</div>
+        <div class="vs-icon">🚄</div>
+        <div class="vs-content">
+          <div class="vs-name" data-i18n="vs.i6.name">Shenzhen Day via Bullet Train — China's Silicon Valley for Sourcing</div>
+          <div class="vs-desc" data-i18n="vs.i6.desc">Board China's legendary high-speed bullet train — one of the world's fastest travel experiences — and arrive in Shenzhen in under an hour from Guangzhou. Then dive into Huaqiangbei Market and SEG Electronics Plaza, the world's largest electronics hub. If it's made in China, it was born here. Discover products your competitors haven't found yet.</div>
+        </div>
+        <div class="vs-value">
+          <div class="vs-value-label" data-i18n="vs.retail">Retail Value</div>
+          <div class="vs-value-price">$600</div>
+        </div>
+      </div>
+
+      <!-- Item 7: Outlets Day -->
+      <div class="vs-item vs-item-bonus">
+        <div class="vs-bonus-tag" data-i18n="vs.bonus">🎁 BONUS</div>
+        <div class="vs-icon">🛍️</div>
+        <div class="vs-content">
+          <div class="vs-name" data-i18n="vs.i7.name">Premium Outlets Shopping Day — China's Most Exclusive Retail Destinations</div>
+          <div class="vs-desc" data-i18n="vs.i7.desc">Experience China's premier outlet destinations — factory-direct luxury and branded goods at fractions of Western retail prices. Understand the real manufacturing economy from the inside. A cultural and commercial education you can't get from a YouTube video.</div>
+        </div>
+        <div class="vs-value">
+          <div class="vs-value-label" data-i18n="vs.retail">Retail Value</div>
+          <div class="vs-value-price">$400</div>
+        </div>
+      </div>
+
+      <!-- Item 8: DDP Discount -->
+      <div class="vs-item vs-item-bonus">
+        <div class="vs-bonus-tag" data-i18n="vs.bonus">🎁 BONUS</div>
+        <div class="vs-icon">📦</div>
+        <div class="vs-content">
+          <div class="vs-name" data-i18n="vs.i8.name">Lifetime 10% Discount on All DDP Shipping — Reserved for Trip Alumni</div>
+          <div class="vs-desc" data-i18n="vs.i8.desc">This is where the real ROI lives. Every shipment you send after this trip costs 10% less — forever. On a $50,000 annual shipping spend, that's $5,000 back in your pocket every year. Compounding savings that pay for this trip over and over.</div>
+        </div>
+        <div class="vs-value">
+          <div class="vs-value-label" data-i18n="vs.value-inf">Annual Value</div>
+          <div class="vs-value-price">$5,000<span class="vs-value-plus">+/yr</span></div>
+        </div>
+      </div>
+
+      <!-- Total Stack -->
+      <div class="vs-total">
+        <div class="vs-total-left">
+          <div class="vs-total-label" data-i18n="vs.total-label">Total Retail Value</div>
+          <div class="vs-total-value">$16,300<span class="vs-total-plus">+</span></div>
+        </div>
+        <div class="vs-total-divider"></div>
+        <div class="vs-total-right">
+          <div class="vs-total-label" data-i18n="vs.your-price">Your Investment</div>
+          <div class="vs-your-price">From $3,250<span class="vs-your-note" data-i18n="vs.per-person"> / per person</span></div>
+          <div class="vs-savings-callout" data-i18n="vs.you-save">You save up to $13,050 in total value</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="vs-cta-area fade-up">
+      <button class="btn-hero-primary" style="font-size:17px;padding:18px 40px;border-radius:14px;" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})" data-i18n="vs.cta">See Group Rates & Reserve My Seat →</button>
+      <p class="vs-guarantee" data-i18n="vs.guarantee">🔒 Limited to 8 seats per trip. Once full, the next availability is October 2026.</p>
+    </div>
+
+  </div>
+</section>
+
 <!-- ===== STATS ===== -->
 <div class="stats-bar" role="region" aria-label="Company statistics">
   <div class="stats-grid">
@@ -963,6 +1239,35 @@ const i18n = {
     "nav.services": "Services",
     "nav.itinerary": "Canton Fair",
     "nav.contact": "Contact",
+    "vs.eyebrow": "The Irresistible Offer",
+    "vs.title": "Everything Included. Nothing Left to Chance.",
+    "vs.subtitle": "We\'ve obsessively curated every detail so you arrive in China as a buyer, not a tourist. Here\'s exactly what\'s inside your package — and what it would cost if you booked it yourself.",
+    "vs.retail": "Retail Value",
+    "vs.value-inf": "Annual Value",
+    "vs.bonus": "🎁 BONUS",
+    "vs.total-label": "Total Retail Value",
+    "vs.your-price": "Your Investment",
+    "vs.per-person": " / per person",
+    "vs.you-save": "You save up to $13,050 in total value",
+    "vs.cta": "See Group Rates & Reserve My Seat →",
+    "vs.guarantee": "🔒 Limited to 8 seats per trip. Once full, next availability is October 2026.",
+    "vs.i1.name": "Cathay Pacific Round Trip Airfare — Dallas to Guangzhou",
+    "vs.i1.desc": "One of the world\'s top-rated airlines. Lie-flat seats, premium dining, and VIP lounges — so you arrive refreshed and ready to negotiate, not exhausted from a 16-hour economy ordeal.",
+    "vs.i2.name": "7 Nights — 5-Star Hotel with Full International Buffet Breakfast",
+    "vs.i2.desc": "World-class accommodations steps from the Canton Fair. Your mornings start with an international buffet breakfast — fueling long days on the fair floor. Evening return to luxury, not a budget hostel.",
+    "vs.i3.name": "Daily Private Transport — Hotel to Canton Fair & Factory Visits",
+    "vs.i3.desc": "Private air-conditioned vehicle every single day. No rideshare apps, no language barriers, no wasted hours navigating an unfamiliar city. Your guide handles everything door-to-door.",
+    "vs.i4.name": "3-Day VIP Canton Fair Guidance by a Veteran FBA Seller",
+    "vs.i4.desc": "Navigate 200,000+ booths with someone who\'s done over $3M in FBA imports. We shortcut years of trial and error — identifying winning products, vetting suppliers on the spot, and negotiating prices most buyers never see.",
+    "vs.i5.name": "2-Day Curated Factory Deep-Dives with On-Site Quality Audit",
+    "vs.i5.desc": "Skip the middlemen. Walk the factory floor, inspect production lines, meet the actual manufacturer. Our bilingual team conducts AQL-standard quality checks in real time — verified suppliers, not blind trust.",
+    "vs.i6.name": "Shenzhen Day via Bullet Train — China\'s Silicon Valley for Sourcing",
+    "vs.i6.desc": "Board China\'s legendary high-speed bullet train — one of the world\'s fastest and most futuristic travel experiences — and arrive in Shenzhen in under an hour from Guangzhou. Then dive into Huaqiangbei Market and SEG Electronics Plaza, the world\'s largest electronics hub. If it\'s made in China, it was born here. Discover products your competitors haven\'t found yet.",
+    "vs.i7.name": "Premium Outlets Shopping Day — China\'s Most Exclusive Retail Destinations",
+    "vs.i7.desc": "Experience China\'s premier outlet destinations — factory-direct luxury goods at fractions of Western retail prices. A cultural and commercial education you can\'t get from a YouTube video.",
+    "vs.i8.name": "Lifetime 10% Discount on All DDP Shipping — Reserved for Trip Alumni",
+    "vs.i8.desc": "Every shipment you send after this trip costs 10% less — forever. On a $50,000 annual shipping spend, that\'s $5,000 back in your pocket every year. Compounding savings that pay for this trip over and over.",
+    "nav.offer": "The Offer",
     "nav.pricing": "Pricing",
     "pricing.eyebrow": "Group Rates",
     "pricing.title": "Bring Your Circle. Save More.",
@@ -1065,6 +1370,35 @@ const i18n = {
     "nav.services": "Servicios",
     "nav.itinerary": "Feria Cantón",
     "nav.contact": "Contacto",
+    "vs.eyebrow": "La Oferta Irresistible",
+    "vs.title": "Todo Incluido. Nada Dejado al Azar.",
+    "vs.subtitle": "Hemos curado obsesivamente cada detalle para que llegues a China como comprador, no como turista. Aquí está exactamente lo que incluye tu paquete — y lo que costaría si lo reservaras por tu cuenta.",
+    "vs.retail": "Valor en el Mercado",
+    "vs.value-inf": "Valor Anual",
+    "vs.bonus": "🎁 BONO",
+    "vs.total-label": "Valor Total en el Mercado",
+    "vs.your-price": "Tu Inversión",
+    "vs.per-person": " / por persona",
+    "vs.you-save": "Ahorras hasta $13,050 en valor total",
+    "vs.cta": "Ver Tarifas de Grupo y Reservar Mi Cupo →",
+    "vs.guarantee": "🔒 Máximo 8 cupos por viaje. Una vez lleno, próxima disponibilidad: Octubre 2026.",
+    "vs.i1.name": "Vuelo Redondo Cathay Pacific — Dallas a Guangzhou",
+    "vs.i1.desc": "Una de las aerolíneas mejor calificadas del mundo. Asientos lie-flat, gastronomía premium y salas VIP — llegas descansado y listo para negociar, no agotado por 16 horas en clase económica.",
+    "vs.i2.name": "7 Noches — Hotel 5 Estrellas con Desayuno Buffet Internacional Incluido",
+    "vs.i2.desc": "Alojamiento de primer nivel a pasos de la Feria de Cantón. Tus mañanas comienzan con un desayuno buffet internacional — energizándote para largos días en la feria. Por las noches, regresas al lujo.",
+    "vs.i3.name": "Transporte Privado Diario — Hotel a la Feria y Visitas a Fábricas",
+    "vs.i3.desc": "Vehículo privado con aire acondicionado cada día. Sin apps de transporte, sin barreras de idioma. Tu guía maneja todo puerta a puerta.",
+    "vs.i4.name": "3 Días de Orientación VIP en la Feria con un Veterano FBA",
+    "vs.i4.desc": "Navega más de 200,000 stands con alguien que ha importado más de $3M en FBA. Acortamos años de ensayo y error — identificando productos ganadores y negociando precios que la mayoría nunca ve.",
+    "vs.i5.name": "2 Días de Visitas a Fábricas con Auditoría de Calidad In Situ",
+    "vs.i5.desc": "Elimina intermediarios. Camina la planta, inspecciona líneas de producción, conoce al fabricante real. Nuestro equipo bilingüe realiza controles AQL en tiempo real.",
+    "vs.i6.name": "Día de Compras en Shenzhen — El Silicon Valley de China",
+    "vs.i6.desc": "Aborda el legendario tren bala de China — una de las experiencias de viaje más rápidas y futuristas del mundo — y llega a Shenzhen en menos de una hora desde Guangzhou. Luego súmergete en Huaqiangbei y SEG Plaza, el mayor hub de electrónica del planeta. Si se fabrica en China, nació aquí. Descubre productos que tu competencia aún no ha encontrado.",
+    "vs.i7.name": "Día de Compras en los Outlets Premium — Los Destinos de Retail Más Exclusivos de China",
+    "vs.i7.desc": "Outlets de lujo directo de fábrica a fracciones del precio occidental. Una educación comercial y cultural que no consigues en ningún video de YouTube.",
+    "vs.i8.name": "10% de Descuento de Por Vida en Todos los Envíos DDP — Solo para Alumni del Viaje",
+    "vs.i8.desc": "Cada envío que hagas después del viaje cuesta 10% menos — para siempre. En $50,000 de envíos anuales, son $5,000 de regreso a tu bolsillo cada año.",
+    "nav.offer": "La Oferta",
     "nav.pricing": "Precios",
     "pricing.eyebrow": "Tarifas de Grupo",
     "pricing.title": "Trae Tu Círculo. Ahorra Más.",
