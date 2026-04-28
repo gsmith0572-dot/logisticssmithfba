@@ -49,7 +49,7 @@
   .nav-logo img { height: 40px; width: auto; display: block; }
 
   .nav-links {
-    display: flex; align-items: center; gap: 28px;
+    display: none; align-items: center; gap: 28px;
     list-style: none;
   }
   .nav-links a {
@@ -860,8 +860,10 @@
 
   /* HAMBURGER DEFINITIVE RULES */
   .hamburger { display: flex !important; }
+  .nav-links { display: none !important; }
   @media (min-width: 900px) {
     .hamburger { display: none !important; }
+    .nav-links { display: flex !important; }
   }
 </style>
 </head>
@@ -2072,5 +2074,3 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
 </body>
 </html>
-<--help
- v1777403589 -->
