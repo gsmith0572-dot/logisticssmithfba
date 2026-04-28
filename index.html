@@ -382,7 +382,6 @@
   @media (max-width: 899px) {
     .lang-toggle { display: none !important; }
     .nav-cta { display: none !important; }
-    .hamburger { display: flex !important; }
   }
 
   /* ===================== TABLET ===================== */
@@ -403,7 +402,6 @@
     .nav-logo img { height: 48px; }
     .btn-cta { padding: 10px 22px; font-size: 14px; }
     .nav-links { display: flex; }
-    .hamburger { display: none; }
     .hero-content { padding: 80px 48px 80px; }
     .hero-btns { flex-direction: row; }
     .btn-hero-primary { width: auto; border-radius: 999px; }
@@ -859,6 +857,12 @@
   @media (min-width: 640px) { .testimonials-grid { grid-template-columns: 1fr 1fr; } }
   @media (min-width: 1024px) { .testimonials-grid { grid-template-columns: repeat(4, 1fr); } }
 
+
+  /* HAMBURGER DEFINITIVE RULES */
+  .hamburger { display: flex !important; }
+  @media (min-width: 900px) {
+    .hamburger { display: none !important; }
+  }
 </style>
 </head>
 <body>
