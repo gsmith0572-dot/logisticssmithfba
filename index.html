@@ -58,7 +58,7 @@
     white-space: nowrap;
   }
   .nav-links a:hover { opacity: 1; }
-  .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+  .nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; min-width: 0; }
 
   .lang-toggle {
     display: flex; align-items: center;
@@ -87,7 +87,7 @@
   }
   .btn-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(255,140,0,0.40); }
 
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; flex-shrink: 0; }
+  .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; flex-shrink: 0; }
   .hamburger span { width: 22px; height: 2px; background: var(--navy); border-radius: 2px; transition: all 0.3s; display: block; }
 
   /* ===================== HERO ===================== */
@@ -377,6 +377,13 @@
   /* ===================== ANIMATIONS ===================== */
   .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.5s, transform 0.5s; }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===================== MOBILE ONLY ===================== */
+  @media (max-width: 639px) {
+    .lang-toggle { display: none !important; }
+    .btn-cta { display: none !important; }
+    .hamburger { display: flex !important; }
+  }
 
   /* ===================== TABLET ===================== */
   @media (min-width: 640px) {
