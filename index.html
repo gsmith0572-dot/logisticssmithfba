@@ -708,6 +708,118 @@
     .vs-total-right { flex: 1; text-align: right; }
   }
 
+
+  /* ===================== CONTACT FORM ===================== */
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    max-width: 1000px; margin: 0 auto;
+  }
+
+  .contact-info { display: flex; flex-direction: column; }
+
+  .contact-channels { display: flex; flex-direction: column; gap: 16px; }
+  .contact-channel {
+    display: flex; align-items: center; gap: 16px;
+    padding: 16px 20px; border-radius: 14px;
+    background: var(--surface); border: 1px solid var(--border);
+    text-decoration: none; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .contact-channel:hover { border-color: var(--orange); box-shadow: 0 4px 16px rgba(255,140,0,0.1); }
+  .channel-icon { font-size: 24px; flex-shrink: 0; }
+  .channel-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+  .channel-value { font-size: 14px; font-weight: 700; color: var(--navy); }
+
+  .contact-form-wrap {
+    background: white; border-radius: 20px;
+    padding: 32px 24px;
+    border: 2px solid var(--border);
+    box-shadow: 0 4px 32px rgba(0,33,71,0.06);
+  }
+
+  .form-group { margin-bottom: 20px; }
+  .form-label {
+    display: block; font-size: 13px; font-weight: 700;
+    color: var(--navy); margin-bottom: 8px; letter-spacing: 0.02em;
+  }
+  .form-input {
+    width: 100%; padding: 13px 16px;
+    border: 2px solid var(--border); border-radius: 10px;
+    font-family: 'Manrope', sans-serif; font-size: 14px; color: var(--text);
+    background: var(--surface); transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none; appearance: none;
+  }
+  .form-input:focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(0,33,71,0.08); background: white; }
+  .form-input::placeholder { color: #aab0bc; }
+  .form-textarea { resize: vertical; min-height: 110px; }
+
+  .form-submit {
+    width: 100%; padding: 15px;
+    background: var(--navy); color: white;
+    border: none; border-radius: 12px;
+    font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px;
+    cursor: pointer; transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(0,33,71,0.2);
+  }
+  .form-submit:hover { background: var(--orange); box-shadow: 0 6px 24px rgba(255,140,0,0.35); }
+  .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  .form-success {
+    margin-top: 16px; padding: 14px 16px;
+    background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.25);
+    border-radius: 10px; font-size: 14px; font-weight: 600; color: #166534;
+    text-align: center;
+  }
+  .form-error {
+    margin-top: 16px; padding: 14px 16px;
+    background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2);
+    border-radius: 10px; font-size: 14px; font-weight: 600; color: #991b1b;
+    text-align: center;
+  }
+
+  .form-wa-alt {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; margin-top: 16px;
+    font-size: 13px; color: var(--muted); font-weight: 500;
+  }
+  .wa-link {
+    display: inline-flex; align-items: center; gap: 5px;
+    color: #25D366; font-weight: 700; text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .wa-link:hover { opacity: 0.8; }
+
+  @media (min-width: 800px) {
+    .contact-wrapper { grid-template-columns: 1fr 1.2fr; align-items: start; }
+    .contact-form-wrap { padding: 40px; }
+  }
+
+  /* ===== WHATSAPP FLOATING BUTTON ===== */
+  .wa-float {
+    position: fixed; bottom: 24px; right: 24px; z-index: 999;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    animation: wa-bounce 3s ease-in-out infinite;
+  }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,0.55); animation: none; }
+  .wa-float svg { width: 30px; height: 30px; }
+  .wa-float-tooltip {
+    position: absolute; right: 68px; top: 50%; transform: translateY(-50%);
+    background: var(--navy); color: white;
+    font-size: 12px; font-weight: 700; white-space: nowrap;
+    padding: 6px 14px; border-radius: 999px;
+    opacity: 0; pointer-events: none; transition: opacity 0.2s;
+  }
+  .wa-float:hover .wa-float-tooltip { opacity: 1; }
+  @keyframes wa-bounce {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+  }
+
 </style>
 </head>
 <body>
@@ -1174,14 +1286,109 @@
 </section>
 
 <!-- ===== CTA ===== -->
-<section class="cta-section" id="contact" aria-labelledby="cta-heading">
+<section class="cta-section" aria-labelledby="cta-heading">
   <div class="cta-bg-img" role="img" aria-label="Modern warehouse interior"></div>
   <div class="cta-content">
     <h2 id="cta-heading" data-i18n="cta.h2">Ready to <em>Scale</em> Your Supply Chain?</h2>
     <p data-i18n="cta.p">Whether you need expert DDP shipping or a front-row seat at the world's largest trade fair, LogisticsSmith is your direct bridge from China to Amazon FBA.</p>
     <div class="cta-btns">
-      <button class="btn-cta-large" data-i18n="cta.btn1">Get a Free Shipping Quote</button>
-      <button class="btn-white" data-i18n="cta.btn2">Contact an Expert</button>
+      <button class="btn-cta-large" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-i18n="cta.btn1">Get a Free Shipping Quote</button>
+      <a href="https://wa.me/16013346809?text=Hello+LogisticsSmith!+I%27m+interested+in+learning+more+about+your+services." target="_blank" rel="noopener" class="btn-white" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;" data-i18n="cta.btn2">Contact an Expert</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT FORM ===== -->
+<section class="section" id="contact" style="background:white;" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="contact-wrapper fade-up">
+
+      <!-- Left: Info -->
+      <div class="contact-info">
+        <span class="section-eyebrow" data-i18n="cf.eyebrow">Get In Touch</span>
+        <h2 class="section-title" id="contact-heading" style="text-align:left;margin-bottom:16px;" data-i18n="cf.title">Let's Build Your China Sourcing Strategy</h2>
+        <p style="font-size:15px;color:var(--muted);line-height:1.75;margin-bottom:32px;" data-i18n="cf.subtitle">Whether you're ready to book or just exploring, we respond to every inquiry within 24 hours. No pressure — just expert guidance.</p>
+
+        <div class="contact-channels">
+          <a href="mailto:info@logisticssmithfba.com" class="contact-channel">
+            <div class="channel-icon">📧</div>
+            <div>
+              <div class="channel-label" data-i18n="cf.email-label">Email</div>
+              <div class="channel-value">info@logisticssmithfba.com</div>
+            </div>
+          </a>
+          <a href="https://wa.me/16013346809?text=Hello+LogisticsSmith!+I%27m+interested+in+learning+more+about+your+services." target="_blank" rel="noopener" class="contact-channel">
+            <div class="channel-icon">💬</div>
+            <div>
+              <div class="channel-label" data-i18n="cf.wa-label">WhatsApp</div>
+              <div class="channel-value">+1 (601) 334-6809</div>
+            </div>
+          </a>
+          <div class="contact-channel" style="cursor:default;">
+            <div class="channel-icon">📍</div>
+            <div>
+              <div class="channel-label" data-i18n="cf.loc-label">Based In</div>
+              <div class="channel-value" data-i18n="cf.loc-value">Dallas, TX — USA &amp; Guangzhou, China</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-form-wrap">
+        <form id="contact-form" action="https://formspree.io/f/maqagbon" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New LogisticsSmith Inquiry"/>
+          <input type="hidden" name="_next" value="https://logisticssmithfba.com"/>
+
+          <div class="form-group">
+            <label class="form-label" for="name" data-i18n="cf.name">Full Name</label>
+            <input class="form-input" type="text" id="name" name="name" required placeholder="John Smith" autocomplete="name"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email" data-i18n="cf.email">Email Address</label>
+            <input class="form-input" type="email" id="email" name="email" required placeholder="john@yourstore.com" autocomplete="email"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="service" data-i18n="cf.service">I'm Interested In</label>
+            <select class="form-input" id="service" name="service">
+              <option value="" data-i18n="cf.opt0">Select a service...</option>
+              <option value="VIP Canton Fair Trip" data-i18n="cf.opt1">VIP Canton Fair Trip</option>
+              <option value="DDP Shipping & Logistics" data-i18n="cf.opt2">DDP Shipping & Logistics</option>
+              <option value="AQL Inspections" data-i18n="cf.opt3">AQL Inspections</option>
+              <option value="Multiple Services" data-i18n="cf.opt4">Multiple Services</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message" data-i18n="cf.message">Message</label>
+            <textarea class="form-input form-textarea" id="message" name="message" required placeholder="Tell us about your Amazon FBA business and what you're looking for..." rows="4"></textarea>
+          </div>
+
+          <button type="submit" class="form-submit" id="form-submit">
+            <span id="submit-text" data-i18n="cf.submit">Send Message</span>
+            <span id="submit-loading" style="display:none;">Sending...</span>
+          </button>
+
+          <div id="form-success" class="form-success" style="display:none;" data-i18n="cf.success">
+            ✅ Message sent! We'll get back to you within 24 hours.
+          </div>
+          <div id="form-error" class="form-error" style="display:none;" data-i18n="cf.error">
+            ⚠️ Something went wrong. Please email us directly at info@logisticssmithfba.com
+          </div>
+
+          <!-- WhatsApp fallback -->
+          <div class="form-wa-alt">
+            <span data-i18n="cf.or">Or reach us instantly on</span>
+            <a href="https://wa.me/16013346809?text=Hello+LogisticsSmith!+I%27m+interested+in+learning+more+about+your+services." target="_blank" rel="noopener" class="wa-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+          </div>
+        </form>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1245,6 +1452,27 @@ const i18n = {
     "nav.services": "Services",
     "nav.itinerary": "Canton Fair",
     "nav.contact": "Contact",
+    "wa.tooltip": "Chat with us!",
+    "cf.eyebrow": "Get In Touch",
+    "cf.title": "Let's Build Your China Sourcing Strategy",
+    "cf.subtitle": "Whether you're ready to book or just exploring, we respond to every inquiry within 24 hours. No pressure — just expert guidance.",
+    "cf.email-label": "Email",
+    "cf.wa-label": "WhatsApp",
+    "cf.loc-label": "Based In",
+    "cf.loc-value": "Dallas, TX — USA & Guangzhou, China",
+    "cf.name": "Full Name",
+    "cf.email": "Email Address",
+    "cf.service": "I'm Interested In",
+    "cf.opt0": "Select a service...",
+    "cf.opt1": "VIP Canton Fair Trip",
+    "cf.opt2": "DDP Shipping & Logistics",
+    "cf.opt3": "AQL Inspections",
+    "cf.opt4": "Multiple Services",
+    "cf.message": "Message",
+    "cf.submit": "Send Message",
+    "cf.success": "✅ Message sent! We'll get back to you within 24 hours.",
+    "cf.error": "⚠️ Something went wrong. Please email us at info@logisticssmithfba.com",
+    "cf.or": "Or reach us instantly on",
     "vs.eyebrow": "The Irresistible Offer",
     "vs.title": "Everything Included. Nothing Left to Chance.",
     "vs.subtitle": "We\'ve obsessively curated every detail so you arrive in China as a buyer, not a tourist. Here\'s exactly what\'s inside your package — and what it would cost if you booked it yourself.",
@@ -1380,6 +1608,27 @@ const i18n = {
     "nav.services": "Servicios",
     "nav.itinerary": "Feria Cantón",
     "nav.contact": "Contacto",
+    "wa.tooltip": "¡Chatea con nosotros!",
+    "cf.eyebrow": "Contáctanos",
+    "cf.title": "Construyamos Tu Estrategia de Abastecimiento en China",
+    "cf.subtitle": "Ya sea que estés listo para reservar o solo explorando, respondemos cada consulta en menos de 24 horas. Sin presión — solo orientación experta.",
+    "cf.email-label": "Correo",
+    "cf.wa-label": "WhatsApp",
+    "cf.loc-label": "Ubicación",
+    "cf.loc-value": "Dallas, TX — EE.UU. & Guangzhou, China",
+    "cf.name": "Nombre Completo",
+    "cf.email": "Correo Electrónico",
+    "cf.service": "Me Interesa",
+    "cf.opt0": "Selecciona un servicio...",
+    "cf.opt1": "Viaje VIP Feria de Cantón",
+    "cf.opt2": "Envío DDP & Logística",
+    "cf.opt3": "Inspecciones AQL",
+    "cf.opt4": "Múltiples Servicios",
+    "cf.message": "Mensaje",
+    "cf.submit": "Enviar Mensaje",
+    "cf.success": "✅ ¡Mensaje enviado! Te responderemos en menos de 24 horas.",
+    "cf.error": "⚠️ Algo salió mal. Por favor escríbenos a info@logisticssmithfba.com",
+    "cf.or": "O contáctanos de inmediato por",
     "vs.eyebrow": "La Oferta Irresistible",
     "vs.title": "Todo Incluido. Nada Dejado al Azar.",
     "vs.subtitle": "Hemos curado obsesivamente cada detalle para que llegues a China como comprador, no como turista. Aquí está exactamente lo que incluye tu paquete — y lo que costaría si lo reservaras por tu cuenta.",
@@ -1566,6 +1815,58 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ===== CONTACT FORM HANDLER =====
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('form-submit');
+      const submitText = document.getElementById('submit-text');
+      const loading = document.getElementById('submit-loading');
+      const success = document.getElementById('form-success');
+      const error = document.getElementById('form-error');
+
+      btn.disabled = true;
+      submitText.style.display = 'none';
+      loading.style.display = 'inline';
+      success.style.display = 'none';
+      error.style.display = 'none';
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          success.style.display = 'block';
+          form.reset();
+          // Also open WhatsApp notification
+          const name = document.getElementById('name').value || 'Someone';
+          setTimeout(() => {
+            window.open('https://wa.me/16013346809?text=New+inquiry+from+the+website!+Check+your+email+for+details.', '_blank');
+          }, 1500);
+        } else {
+          error.style.display = 'block';
+        }
+      } catch(err) {
+        error.style.display = 'block';
+      }
+      btn.disabled = false;
+      submitText.style.display = 'inline';
+      loading.style.display = 'none';
+    });
+  }
+
 </script>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/16013346809?text=Hello+LogisticsSmith!+I%27m+interested+in+learning+more+about+your+services." 
+   target="_blank" rel="noopener" class="wa-float" aria-label="Chat on WhatsApp">
+  <span class="wa-float-tooltip" data-i18n="wa.tooltip">Chat with us!</span>
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
 </body>
 </html>
