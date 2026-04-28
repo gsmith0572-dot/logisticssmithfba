@@ -379,9 +379,9 @@
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 
   /* ===================== MOBILE ONLY ===================== */
-  @media (max-width: 639px) {
+  @media (max-width: 899px) {
     .lang-toggle { display: none !important; }
-    .btn-cta { display: none !important; }
+    .nav-cta { display: none !important; }
     .hamburger { display: flex !important; }
   }
 
@@ -883,7 +883,7 @@
         <button class="lang-btn active" id="btn-en" onclick="setLang('en')" aria-pressed="true">EN</button>
         <button class="lang-btn" id="btn-es" onclick="setLang('es')" aria-pressed="false">ES</button>
       </div>
-      <a href="#contact" class="btn-cta" data-i18n="nav.cta">Get a Quote</a>
+      <a href="#contact" class="btn-cta nav-cta" data-i18n="nav.cta">Get a Quote</a>
       <div class="hamburger" id="hamburger" aria-label="Open menu" role="button" tabindex="0">
         <span></span><span></span><span></span>
       </div>
