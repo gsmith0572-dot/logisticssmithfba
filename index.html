@@ -826,20 +826,26 @@
       <!-- Card 2: Canton Fair VIP -->
       <div class="service-card card-dark">
         <div class="service-icon icon-dark">✈️</div>
-        <h3 data-i18n="s2.title">VIP Canton Fair Experience</h3>
-        <p class="service-desc" data-i18n="s2.desc">An 8-day all-inclusive sourcing intensive led by FBA veterans. Fly from Dallas — everything else is handled.</p>
-        <div class="price-tag">$3,750 <small data-i18n="s2.price-note">All-Inclusive · Round Trip Airfare Dallas–Guangzhou</small></div>
-        <ul class="checklist" aria-label="Canton Fair package included">
-          <li><div class="check-dot">🏨</div><span data-i18n="s2.f1">5-Star hotel &amp; all ground transport</span></li>
-          <li><div class="check-dot">🗣️</div><span data-i18n="s2.f2">Expert sourcing &amp; negotiation support</span></li>
-          <li><div class="check-dot">🏭</div><span data-i18n="s2.f3">2 days of curated factory visits</span></li>
-          <li><div class="check-dot">📋</div><span data-i18n="s2.f4">3 days Canton Fair prospecting guidance</span></li>
-          <li><div class="check-dot">🎓</div><span data-i18n="s2.f5">FBA strategy sessions with seasoned sellers</span></li>
-        </ul>
-        <div style="margin-top:24px;background:rgba(255,140,0,0.12);border:1px solid rgba(255,140,0,0.35);border-radius:12px;padding:16px 20px;display:flex;align-items:flex-start;gap:12px;">
-          <span style="font-size:22px;flex-shrink:0;">💰</span>
-          <p style="font-size:13px;line-height:1.6;color:rgba(255,255,255,0.9);" data-i18n="s2.bonus">Your $3,750 investment pays for itself. VIP Canton Fair Package members receive <strong style="color:#FF8C00;">10% off all DDP shipping</strong> — saving thousands on every future order.</p>
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,140,0,0.15);border:1px solid rgba(255,140,0,0.3);border-radius:999px;padding:4px 14px;margin-bottom:16px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#FF8C00;animation:pulse 1.5s infinite;flex-shrink:0;display:inline-block;"></span>
+          <span style="font-size:10px;font-weight:800;color:#FF8C00;letter-spacing:0.1em;text-transform:uppercase;" data-i18n="s2.badge">Group Rates from $3,250/person</span>
         </div>
+        <h3 data-i18n="s2.title">VIP Canton Fair Experience</h3>
+        <p class="service-desc" data-i18n="s2.desc">An 8-day all-inclusive sourcing intensive led by veteran FBA sellers. Fly Cathay Pacific from Dallas — every detail handled from takeoff to touchdown.</p>
+        <ul class="checklist" aria-label="Canton Fair package included">
+          <li><div class="check-dot">✈️</div><span data-i18n="s2.f1">Cathay Pacific round trip — Dallas to Guangzhou</span></li>
+          <li><div class="check-dot">🏨</div><span data-i18n="s2.f2">5-Star hotel with daily international buffet breakfast</span></li>
+          <li><div class="check-dot">🚐</div><span data-i18n="s2.f3">Hotel-coordinated fair transfers &amp; Didi Premium city transport</span></li>
+          <li><div class="check-dot">🎓</div><span data-i18n="s2.f4">3 days VIP Canton Fair guidance by FBA veterans</span></li>
+          <li><div class="check-dot">🏭</div><span data-i18n="s2.f5">2 days factory deep-dives with AQL quality audits</span></li>
+          <li><div class="check-dot">🚄</div><span data-i18n="s2.f6">Shenzhen day via high-speed bullet train</span></li>
+          <li><div class="check-dot">🛍️</div><span data-i18n="s2.f7">Premium outlets shopping experience</span></li>
+        </ul>
+        <div style="margin-top:20px;background:rgba(255,140,0,0.12);border:1px solid rgba(255,140,0,0.35);border-radius:12px;padding:14px 18px;display:flex;align-items:flex-start;gap:10px;">
+          <span style="font-size:20px;flex-shrink:0;">💰</span>
+          <p style="font-size:12px;line-height:1.6;color:rgba(255,255,255,0.9);" data-i18n="s2.bonus">Trip alumni receive <strong style="color:#FF8C00;">10% off all DDP shipping — for life.</strong> On $50K/year in shipments, that's $5,000 back annually.</p>
+        </div>
+        <button class="pricing-btn pricing-btn-primary" style="margin-top:20px;border-radius:12px;" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})" data-i18n="s2.cta">View Group Rates →</button>
       </div>
     </div>
   </div>
@@ -1318,15 +1324,19 @@ const i18n = {
     "s1.f3": "FNSKU labeling & poly-bagging",
     "s1.f4": "Sample consolidation from multiple vendors",
     "s1.f5": "Amazon-ready carton marking & documentation",
+    "s2.badge": "Group Rates from $3,250/person",
     "s2.title": "VIP Canton Fair Experience",
-    "s2.desc": "An 8-day all-inclusive sourcing intensive led by FBA veterans. Fly from Dallas — everything else is handled.",
-    "s2.price-note": "All-Inclusive · Round Trip Airfare Dallas–Guangzhou",
-    "s2.f1": "5-Star hotel & all ground transport",
-    "s2.f2": "Expert sourcing & negotiation support",
-    "s2.f3": "2 days of curated factory visits",
-    "s2.f4": "3 days Canton Fair prospecting guidance",
-    "s2.f5": "FBA strategy sessions with seasoned sellers",
-    "s2.bonus": "Your $3,750 investment pays for itself. VIP Canton Fair Package members receive <strong style=\"color:#FF8C00;\">10% off all DDP shipping</strong> — saving thousands on every future order.",
+    "s2.desc": "An 8-day all-inclusive sourcing intensive led by veteran FBA sellers. Fly Cathay Pacific from Dallas — every detail handled from takeoff to touchdown.",
+    
+    "s2.f1": "Cathay Pacific round trip — Dallas to Guangzhou",
+    "s2.f2": "5-Star hotel with daily international buffet breakfast",
+    "s2.f3": "Hotel-coordinated fair transfers & Didi Premium city transport",
+    "s2.f4": "3 days VIP Canton Fair guidance by FBA veterans",
+    "s2.f5": "2 days factory deep-dives with AQL quality audits",
+    "s2.f6": "Shenzhen day via high-speed bullet train",
+    "s2.f7": "Premium outlets shopping experience",
+    "s2.cta": "View Group Rates →",
+    "s2.bonus": "Trip alumni receive <strong style=\"color:#FF8C00;\">10% off all DDP shipping — for life.</strong> On $50K/year in shipments, that’s $5,000 back annually.",
     "stat.1": "Years FBA Experience",
     "stat.2": "Freight Shipped Annually",
     "stat.3": "Shipments Completed",
@@ -1449,15 +1459,19 @@ const i18n = {
     "s1.f3": "Etiquetado FNSKU y embolsado en polietileno",
     "s1.f4": "Consolidación de muestras de múltiples proveedores",
     "s1.f5": "Marcado de cajas y documentación lista para Amazon",
+    "s2.badge": "Tarifas desde $3,250/persona",
     "s2.title": "Experiencia VIP Feria de Cantón",
-    "s2.desc": "Una intensiva de abastecimiento de 8 días todo incluido dirigida por veteranos de FBA. Vuela desde Dallas — todo lo demás está cubierto.",
-    "s2.price-note": "Todo Incluido · Vuelo Redondo Dallas–Guangzhou",
-    "s2.f1": "Hotel 5 estrellas y todo el transporte terrestre",
-    "s2.f2": "Soporte experto en abastecimiento y negociación",
-    "s2.f3": "2 días de visitas a fábricas seleccionadas",
-    "s2.f4": "3 días de orientación en la Feria de Cantón",
-    "s2.f5": "Sesiones de estrategia FBA con vendedores experimentados",
-    "s2.bonus": "Tu inversión de $3,750 se paga sola. Los miembros del VIP Canton Fair Package reciben <strong style=\"color:#FF8C00;\">10% de descuento en todos los envíos DDP</strong> — ahorrando miles en cada pedido futuro.",
+    "s2.desc": "Una intensiva de abastecimiento de 8 días todo incluido con veteranos de FBA. Vuela en Cathay Pacific desde Dallas — cada detalle coordinado de principio a fin.",
+    
+    "s2.f1": "Vuelo redondo Cathay Pacific — Dallas a Guangzhou",
+    "s2.f2": "Hotel 5 estrellas con desayuno buffet internacional diario",
+    "s2.f3": "Traslados coordinados por el hotel y transporte Didi Premium",
+    "s2.f4": "3 días de orientación VIP en la Feria con veteranos FBA",
+    "s2.f5": "2 días de visitas a fábricas con auditoría AQL in situ",
+    "s2.f6": "Día en Shenzhen en tren bala de alta velocidad",
+    "s2.f7": "Experiencia de compras en outlets premium",
+    "s2.cta": "Ver Tarifas de Grupo →",
+    "s2.bonus": "Los alumni del viaje reciben <strong style=\"color:#FF8C00;\">10% de descuento en todos los envíos DDP — de por vida.</strong> En $50K/año en envíos, son $5,000 de vuelta a tu bolsillo anualmente.",
     "stat.1": "Años de Experiencia FBA",
     "stat.2": "Carga Enviada Anualmente",
     "stat.3": "Envíos Completados",
